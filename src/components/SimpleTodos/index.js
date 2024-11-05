@@ -1,7 +1,8 @@
 import {Component} from 'react'
-// import {v4 as uuidv4} from 'uuid'
+import {v4 as uuidv4} from 'uuid'
 
 import TodoItem from '../TodoItem'
+import './index.css'
 
 const initialTodosList = [
   {
@@ -62,7 +63,7 @@ class SimpleTodos extends Component {
   addNewTodo = () => {
     const {newTodo} = this.state
     const newTitle = {
-      // id : uuidv4(),
+      id: uuidv4(),
       title: newTodo,
       complete: false,
     }
@@ -85,21 +86,30 @@ class SimpleTodos extends Component {
     const {todolist, newTodo} = this.state
     return (
       <div>
-        <h1>Simple Todos</h1>
-        <input type="text" onChange={this.onChangeNew} value={newTodo} />
-        <button type="button" onClick={this.addNewTodo}>
-          Add
-        </button>
-        <ul>
-          {todolist.map(eachtodo => (
-            <TodoItem
-              key={eachtodo.id}
-              tododetails={eachtodo}
-              deletetodo={this.ondeletetodo}
-              togglecomplete={this.togglecomplete}
-            />
-          ))}
-        </ul>
+        <h1 style={{textAlign: 'center'}}>Simple Todos</h1>
+        <div style={{textAlign: 'center'}}>
+          <input
+            type="text"
+            onChange={this.onChangeNew}
+            value={newTodo}
+            style={{height: '30px', width: '180px'}}
+          />
+          <button type="button" onClick={this.addNewTodo} className="btnPlace">
+            Add
+          </button>
+        </div>
+        <div className="adjust-center">
+          <ul>
+            {todolist.map(eachtodo => (
+              <TodoItem
+                key={eachtodo.id}
+                tododetails={eachtodo}
+                deletetodo={this.ondeletetodo}
+                togglecomplete={this.togglecomplete}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     )
   }

@@ -1,1 +1,29 @@
 /* Write your CSS here */
+.list {
+  list-style-type: none;
+  border: 2px solid black;
+  padding: 4px;
+
+  margin-bottom: 14px;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.delete-btn {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.check {
+  display: flex;
+  flex-direction: row;
+}
+.text {
+  margin-left: 10px;
+  font-size: 19px;
+  font-weight: bold;
+}
+.save {
+  margin-left: 15px;
+}
